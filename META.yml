@@ -1,11 +1,10 @@
 --- 
-abstract: Splitting HTML text by number of characters.
+abstract: Splitting HTML by number of characters.
 author: 
   - Hiroshi Sakai <ziguzagu@cpan.org>
 build_requires: 
   Class::Accessor::Fast: 0
   HTML::Parser: 0
-  Test::Base: 0
 distribution_type: module
 generated_by: Module::Install version 0.68
 license: perl

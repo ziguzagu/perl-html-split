@@ -21,4 +21,7 @@ MANIFEST			This list of files
 META.yml
 README
 t/00-compile.t
+t/01-split.t
+t/01-split_bugs.t
+t/02-pager.t
 t/99-pod.t

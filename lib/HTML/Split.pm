@@ -165,7 +165,7 @@ __END__
 
 =head1 NAME
 
-HTML::Split - Splitting HTML text by number of characters.
+HTML::Split - Splitting HTML by number of characters.
 
 =head1 SYNOPSIS
 
@@ -174,19 +174,67 @@ HTML::Split - Splitting HTML text by number of characters.
   my $html = <<HTML;
   <div class="pkg">
   <h1>HTML::Split</h1>
-  <p>Splitting HTML text by number of characters.</p>
+  <p>Splitting HTML by number of characters.</p>
   </div>
   HTML;
+
   my @pages = HTML::Split->split(html => $html, length => 50);
+
   # $pages[0] <div class="pkg">
   #           <h1>HTML::Split</h1>
   #           <p>Splittin</p></div>
   # $pages[1] <div class="pkg">
-  #           <p>g HTML text by number of characters.</p></div>
+  #           <p>g HTML by number of characters.</p></div>
 
 =head1 DESCRIPTION
 
-HTML::Split is
+HTML::Split is the module to split HTML by number of characters.
+
+In some mobile devices, mainly cell-phones, because the data size
+that can be acquired with HTTP is limited, it is necessary to split HTML.
+
+This module provide the method of splitting HTML without destroying
+the DOM tree for such devices.
+
+=head1 CLASS METHODS
+
+=head2 split
+
+Split HTML text by number of characters.
+
+=head3 html
+
+HTML string.
+
+=head3 length
+
+The length (characters) per pages.
+
+=head3 extend_tags
+
+More document...
+
+=head1 INSTANCE METHODS
+
+=head2 new
+
+Create an instance of HTML::Split. Accept same arguments as I<split> method.
+
+=head2 current_page
+
+Set/Get current page.
+
+=head2 total_pages
+
+Return the number of total pages.
+
+=head2 next_page
+
+Return the next page number. If the next page doesn't exists, return undef.
+
+=head2 prev_page
+
+Return the previous page number.  If the previous page doesn't exists, return undef.
 
 =head1 AUTHOR
 
