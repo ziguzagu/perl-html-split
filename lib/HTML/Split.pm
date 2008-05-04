@@ -200,7 +200,7 @@ the DOM tree for such devices.
 
 =head2 split
 
-Split HTML text by number of characters.
+Split HTML text by number of characters. It can accept below parameters with hash.
 
 =head3 html
 
