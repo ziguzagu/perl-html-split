@@ -11,4 +11,4 @@
 \.gz$
 \.cvsignore
 \.shipit
-^t/9\d_.*\.t
+^t/9\d-.*\.t
