@@ -212,7 +212,32 @@ The length (characters) per pages.
 
 =head3 extend_tags
 
-More document...
+Defining regexp of description that can not split.
+For example, your original markup language to show emoticon, '[E:foo]'.
+
+  extend_tags => [
+      {
+          full  => qr/\[E:[\w\-]+\]/,
+          begin => qr/\[[^\]]*?/,
+          end   => qr/[^\]]+\]/,
+      },
+  ]
+
+=over 4
+
+=item * I<full>
+
+Completely matching pattern of your original marukup.
+
+=item * I<begin>
+
+The beggingn pattern to find your original markup.
+
+=item * I<end>
+
+The ending pattern of your original markup.
+
+=back
 
 =head1 INSTANCE METHODS
 
