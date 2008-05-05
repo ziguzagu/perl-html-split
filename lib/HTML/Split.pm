@@ -213,7 +213,7 @@ The length (characters) per pages.
 =head3 extend_tags
 
 Defining regexp of description that can not split.
-For example, your original markup language to show emoticon, '[E:foo]'.
+For example, your original markup to show emoticon '[E:foo]':
 
   extend_tags => [
       {
@@ -227,11 +227,11 @@ For example, your original markup language to show emoticon, '[E:foo]'.
 
 =item * I<full>
 
-Completely matching pattern of your original marukup.
+Completely matching pattern of your original markup.
 
 =item * I<begin>
 
-The beggingn pattern to find your original markup.
+The beginning pattern to find your original markup.
 
 =item * I<end>
 

@@ -3,6 +3,12 @@ eval q{ use Test::Spelling };
 plan skip_all => "Test::Spelling is not installed." if $@;
 add_stopwords(<DATA>);
 all_pod_files_spelling_ok('lib');
+
 __DATA__
 Hiroshi
 Sakai
+HTML
+html
+DOM
+HTTP
+emoticon
