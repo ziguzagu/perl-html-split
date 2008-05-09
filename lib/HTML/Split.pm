@@ -21,8 +21,10 @@ sub split {
     my $max_length  = $param{length} or return ($html);
     my $extend_tags = $param{extend_tags} || [];
 
-    Encode::_utf8_on($html) unless Encode::is_utf8($html);
-    return ( $html ) if length $html <= $max_length;
+    my $is_utf8 = Encode::is_utf8($html);
+
+    Encode::_utf8_on($html) unless $is_utf8;
+    return ( $param{html} ) if length $html <= $max_length;
 
     my (@pages, @tags, $last_tag, $forwarded_tags);
     my $page = '';
@@ -115,7 +117,9 @@ sub split {
     $p->eof;
     $create_page->();
 
-    Encode::_utf8_off($_) for @pages;
+    unless ($is_utf8) {
+        Encode::_utf8_off($_) for @pages;
+    }
     return @pages;
 }
 
