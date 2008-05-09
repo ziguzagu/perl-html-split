@@ -3,7 +3,7 @@ package HTML::Split;
 use strict;
 use warnings;
 use 5.8.1;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use base qw( Class::Accessor::Fast );
 __PACKAGE__->mk_ro_accessors(qw( total_pages prev_page next_page ));
