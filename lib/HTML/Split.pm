@@ -239,11 +239,11 @@ The ending pattern of your original markup.
 
 =back
 
-=head1 INSTANCE METHODS
-
 =head2 new
 
 Create an instance of HTML::Split. Accept same arguments as I<split> method.
+
+=head1 INSTANCE METHODS
 
 =head2 current_page
 
