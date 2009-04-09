@@ -265,6 +265,10 @@ Return the next page number. If the next page doesn't exists, return undef.
 
 Return the previous page number.  If the previous page doesn't exists, return undef.
 
+=head2 text
+
+Return the text of current page.
+
 =head1 AUTHOR
 
 Hiroshi Sakai E<lt>ziguzagu@cpan.orgE<gt>
