@@ -169,7 +169,7 @@ __END__
 
 =head1 NAME
 
-HTML::Split - Splitting HTML by number of characters.
+HTML::Split - Splitting HTML by number of characters with keeping DOM structure.
 
 =head1 SYNOPSIS
 
@@ -192,7 +192,8 @@ HTML::Split - Splitting HTML by number of characters.
 
 =head1 DESCRIPTION
 
-HTML::Split is the module to split HTML by number of characters.
+HTML::Split is the module to split HTML by number of characters with keeping
+DOM structure.
 
 In some mobile devices, mainly cell-phones, because the data size
 that can be acquired with HTTP is limited, it is necessary to split HTML.
