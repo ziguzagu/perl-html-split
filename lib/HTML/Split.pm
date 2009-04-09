@@ -127,14 +127,14 @@ sub new {
     my $class = shift;
     my %param = @_;
 
-    my $html        = $param{html}   or die;
-    my $length      = $param{length} or die;
-    my $extend_tags = $param{extend_tags} || [];
+    return warn q{'html' was not set}       unless $param{html};
+    return warn q{'length' was not set}     unless $param{length};
+    return warn q{'length' is not numeric.} unless $param{length} =~ /^\d+$/;
 
     my @pages = __PACKAGE__->split(
-        html        => $html,
-        length      => $length,
-        extend_tags => $extend_tags,
+        html        => $param{html},
+        length      => $param{length},
+        extend_tags => $param{extend_tags} || [],
     );
 
     my $self = bless {
