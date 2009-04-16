@@ -7,7 +7,6 @@ build_requires 'HTML::Parser';
 build_requires 'Class::Accessor::Fast';
 # tests
 tests 't/*.t';
-author_tests 'xt';
 use_test_base;
 # misc
 auto_include;
