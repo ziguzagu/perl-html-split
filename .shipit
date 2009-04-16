@@ -1,2 +1,3 @@
 steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
-svk.tagpattern = %v
+git.tagpattern = %v
+git.push_to = origin
