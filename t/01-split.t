@@ -1,5 +1,5 @@
 use strict;
-use Test::Base tests => 13;
+use Test::Base tests => 14;
 use HTML::Split;
 
 filters {
@@ -132,3 +132,9 @@ foobar[E:typhoon]
 あいうえお1234[E:sun]
 abcdefghi[
 test]
+
+=== 'strong' in 'a'
+--- input paginate=50
+<a href="http://www.typepad.com/"><strong>TypePad.com</strong></a>
+--- expected
+<a href="http://www.typepad.com/"><strong>TypePad.com</strong></a>

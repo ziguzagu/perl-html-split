@@ -47,6 +47,9 @@ sub split {
     my $start_tag_handler = sub {
         my ($p, $tagname, $text) = @_;
         if ($find_end_tag) {
+            unless ($_is_empty_tag{$tagname}) {
+                push @tags, $last_tag = { tagname => $tagname, text => $text };
+            }
             $page .= $text;
             return;
         }
