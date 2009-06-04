@@ -3,10 +3,8 @@ package HTML::Split;
 use strict;
 use warnings;
 use 5.8.1;
-our $VERSION = '0.03';
 
-use base qw( Class::Accessor::Fast );
-__PACKAGE__->mk_ro_accessors(qw( total_pages prev_page next_page ));
+our $VERSION = '0.03';
 
 use Encode;
 use HTML::Parser;
@@ -130,41 +128,9 @@ sub new {
     my $class = shift;
     my %param = @_;
 
-    return warn q{'html' was not set}       unless $param{html};
-    return warn q{'length' was not set}     unless $param{length};
-    return warn q{'length' is not numeric.} unless $param{length} =~ /^\d+$/;
-
-    my @pages = __PACKAGE__->split(
-        html        => $param{html},
-        length      => $param{length},
-        extend_tags => $param{extend_tags} || [],
-    );
-
-    my $self = bless {
-        pages       => \@pages,
-        total_pages => scalar @pages,
-    }, $class;
-
-    $self->current_page(1);
-
-    return $self;
-}
-
-sub current_page {
-    my ($self, $page) = @_;
-    if (defined $page && $page > 0) {
-        $self->{current_page} = $page;
-        $self->{prev_page} = ($page - 1 > 0) ? $page - 1 : undef;
-        $self->{next_page} = ($page + 1 <= $self->total_pages) ? $page + 1 : undef;
-        return $self;
-    }
-    return $self->{current_page};
-}
-
-sub text {
-    my $self = shift;
-    return wantarray ? @{ $self->{pages} }
-                     : $self->{pages}[$self->current_page - 1];
+    warn "This method will be depricated. Please use HTML::Split::Pager->new instead.";
+    require HTML::Split::Pager;
+    return HTML::Split::Pager->new(%param);
 }
 
 1;
@@ -204,7 +170,7 @@ that can be acquired with HTTP is limited, it is necessary to split HTML.
 This module provide the method of splitting HTML without destroying
 the DOM tree for such devices.
 
-=head1 CLASS METHODS
+=head1 METHODS
 
 =head2 split
 
@@ -249,29 +215,7 @@ The ending pattern of your original markup.
 
 =head2 new
 
-Create an instance of HTML::Split. Accept same arguments as I<split> method.
-
-=head1 INSTANCE METHODS
-
-=head2 current_page
-
-Set/Get current page.
-
-=head2 total_pages
-
-Return the number of total pages.
-
-=head2 next_page
-
-Return the next page number. If the next page doesn't exists, return undef.
-
-=head2 prev_page
-
-Return the previous page number.  If the previous page doesn't exists, return undef.
-
-=head2 text
-
-Return the text of current page.
+This will be deprecated. Please use I<HTML::Split::Pager> instead.
 
 =head1 AUTHOR
 

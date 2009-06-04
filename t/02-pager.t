@@ -1,6 +1,6 @@
 use strict;
 use Test::More tests => 10;
-use HTML::Split;
+use HTML::Split::Pager;
 
 my $html = <<HTML;
 <div class="pkg">
@@ -9,12 +9,12 @@ my $html = <<HTML;
 </div>
 HTML
 
-my $pager = HTML::Split->new(
+my $pager = HTML::Split::Pager->new(
     html   => $html,
     length => 50,
 );
 
-isa_ok $pager, 'HTML::Split';
+isa_ok $pager, 'HTML::Split::Pager';
 
 is $pager->total_pages, 2;
 
