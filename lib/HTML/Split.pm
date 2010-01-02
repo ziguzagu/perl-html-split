@@ -2,7 +2,7 @@ package HTML::Split;
 
 use strict;
 use warnings;
-use 5.8.1;
+use 5.008001;
 
 our $VERSION = '0.03';
 
