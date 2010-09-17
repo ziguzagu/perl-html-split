@@ -1,5 +1,5 @@
 use strict;
-use Test::Base tests => 14;
+use Test::Base tests => 15;
 use HTML::Split;
 
 filters {
@@ -138,3 +138,11 @@ test]
 <a href="http://www.typepad.com/"><strong>TypePad.com</strong></a>
 --- expected
 <a href="http://www.typepad.com/"><strong>TypePad.com</strong></a>
+
+=== Split in the middle of japanese
+--- input paginate_extend=10
+<p>あいうえおかきくけこさしすせそたちつてとなにぬねの</p>
+--- expected
+<p>あいうえおかき</p>
+<p>くけこさしすせそたち</p>
+<p>つてとなにぬねの</p>
