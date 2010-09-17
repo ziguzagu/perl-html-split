@@ -2,6 +2,7 @@ use inc::Module::Install;
 # metadataes
 name 'HTML-Split';
 all_from 'lib/HTML/Split.pm';
+readme_from 'lib/HTML/Split.pm';
 # dependencies
 requires 'HTML::Parser';
 requires 'Class::Accessor::Fast';
