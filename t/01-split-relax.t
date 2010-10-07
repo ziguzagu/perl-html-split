@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::Base tests => 7;
+use Test::Base tests => 8;
 use HTML::Split;
 
 filters {
@@ -14,7 +14,6 @@ sub paginate {
         HTML::Split->split(
             html   => $_,
             length => $len,
-            relax  => 1,
         ),
     ];
 }
@@ -64,6 +63,13 @@ __END__
 --- expected
 <p>The Split Test CO.,LTD.</p>
 <p>All rights reserved.</p>
+
+=== URL
+--- input paginate=10
+<em>www.sixapart.com</em>
+--- expected
+<em>www.sixapart.com</em>
+<em></em>
 
 === japanse is not available
 --- input paginate=20

@@ -34,11 +34,12 @@ run_compare;
 __END__
 
 === Blocked html
---- input paginate=10
-<p>www.sixapart.com</p>
+--- input paginate=20
+<p>Long time ago, one old man was there.</p>
 --- expected
-<p>www.six</p>
-<p>apart.com</p>
+<p>Long time ago,</p>
+<p>one old man was there.</p>
+<p></p>
 
 === Split in the middle of start tag
 --- input paginate=30
@@ -79,10 +80,11 @@ sixapart
 
 === Unclosed tag
 --- input paginate=10
-<p>www.sixapart.com
+<p>I want to eat curry rice
 --- expected
-<p>www.six</p>
-<p>apart.com</p>
+<p>I want </p>
+<p>to eat</p>
+<p>curry rice</p>
 
 === If split in the middle of 'a' element's text, append it current page.
 --- input paginate=50

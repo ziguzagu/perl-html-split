@@ -17,7 +17,6 @@ sub split {
 
     my $html        = $param{html}   or return;
     my $max_length  = $param{length} or return ($html);
-    my $do_relax    = $param{relax};
     my $extend_tags = $param{extend_tags} || [];
 
     my $is_utf8 = Encode::is_utf8($html);
@@ -104,11 +103,11 @@ sub split {
             }
 
             ## relax
-            if ($do_relax && $over == 0) {
+            if ($over == 0) {
                 my $next  = substr $src, $max_length, 100;
                 if ($page =~ /\S$/ && $next =~ /^\S/) {
                     # last word in a sentence
-                    if ($next =~ /^(\S+[\!\?\.,]+)(\s*)/) {
+                    if ($next =~ /^(\S+[\!\?\.,]+\S*)(\s*)/) {
                         $page .= $1;
                         $over += length($1) + length($2); # trim trailing spaces
                     }
