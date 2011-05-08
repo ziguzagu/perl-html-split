@@ -102,22 +102,6 @@ sub split {
                 }
             }
 
-            ## relax
-            if ($over == 0) {
-                my $next  = substr $src, $max_length, 100;
-                if ($page =~ /\S$/ && $next =~ /^\S/) {
-                    # last word in a sentence
-                    if ($next =~ /^(\S+[\!\?\.,]+\S*)(\s*)/) {
-                        $page .= $1;
-                        $over += length($1) + length($2); # trim trailing spaces
-                    }
-                    # just a word
-                    elsif ($next =~ /^\S+\s*/ && $page =~ s/\s+(\S+)$//) {
-                        $over -= length $1;
-                    }
-                }
-            }
-
             $create_page->();
             $src = substr $src, $max_length + $over;
         }
